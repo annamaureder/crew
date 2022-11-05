@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
+import { NavigationUtils } from "~/app/utils/navigationUtils";
+import { RouterExtensions } from "@nativescript/angular";
 
 @Component({
   selector: 'ns-app',
@@ -6,11 +8,20 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
 
-  onBottomNavigationTabSelected(event: any){
+  constructor(private routerExtension: RouterExtensions) {
 
   }
 
-  onBottomNavigationTabPressed(event: any){
+  onBottomNavigationTabSelected(event: any) {
 
-}
+  }
+
+  onBottomNavigationTabPressed(event: any) {
+
+  }
+
+  navigateTo(page: string) {
+    NavigationUtils.navigate(page, this.routerExtension);
+  }
+
 }

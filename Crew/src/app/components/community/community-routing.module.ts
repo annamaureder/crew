@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core'
 import { Routes } from '@angular/router'
 import { NativeScriptRouterModule } from '@nativescript/angular'
 
-import { HomeComponent } from './home.component'
+import { CommunityComponent } from './community.component'
 
-const routes: Routes = [{ path: '', component: HomeComponent }]
+const routes: Routes = [{ path: '', component: CommunityComponent }]
 
 @NgModule({
   imports: [NativeScriptRouterModule.forChild(routes)],
   exports: [NativeScriptRouterModule],
 })
-export class HomeRoutingModule {}
+export class CommunityRoutingModule {}

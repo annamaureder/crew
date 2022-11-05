@@ -3,11 +3,11 @@ import { Routes } from '@angular/router'
 import { NativeScriptRouterModule } from '@nativescript/angular'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('~/app/components/home/home.module').then((m) => m.HomeModule)},
-  { path: 'onboarding', loadChildren: () => import('~/app/components/home/home.module').then((m) => m.HomeModule)},
-  { path: 'chats', loadChildren: () => import('~/app/components/home/home.module').then((m) => m.HomeModule)},
-  { path: 'profile', loadChildren: () => import('~/app/components/home/home.module').then((m) => m.HomeModule)},
+  { path: '', redirectTo: '/feed', pathMatch: 'full' },
+  { path: 'feed', loadChildren: () => import('~/app/components/feed/feed.module').then((m) => m.FeedModule) },
+  { path: 'community', loadChildren: () => import('~/app/components/community/community.module').then((m) => m.CommunityModule) },
+  { path: 'chats', loadChildren: () => import('~/app/components/feed/feed.module').then((m) => m.FeedModule) },
+  { path: 'profile', loadChildren: () => import('~/app/components/profile/profile.module').then((m) => m.ProfileModule) },
 ]
 
 @NgModule({
