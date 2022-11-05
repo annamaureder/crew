@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'Home',
+  selector: 'Community',
   templateUrl: './community.component.html',
   styleUrls: ["./community.component.scss"],
 })

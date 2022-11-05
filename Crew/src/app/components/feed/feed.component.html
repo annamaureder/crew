@@ -1,7 +1,21 @@
-<ActionBar>
-    <Label text="Feed"></Label>
-</ActionBar>
+<StackLayout backgroundColor="black">
+    <SearchBar (clear)="onClear($event)"
+               (submit)="onSubmit($event)" (textChange)="onTextChange($event)"
+               [textFieldBackgroundColor]="searchbarBackgroundColor" [textFieldHintColor]="searchbarColor"></SearchBar>
+    <GridLayout rows="*">
+        <RadListView row="0" [items]="discoveries" row="0">
+            <ListViewLinearLayout scrollDirection="Vertical"></ListViewLinearLayout>
+            <ng-template tkTemplateKey="auto" tkListItemTemplate let-discovery="item">
+                <GridLayout columns="auto, *" (tap)="showDetail(discovery)">
+                    <StackLayout #image col="0" backgroundColor="white" class="image">
 
-<GridLayout>
-    <!-- Add your page content here -->
-</GridLayout>
+                    </StackLayout>
+                    <StackLayout #text col="1" verticalAlignment="center" margin="0" padding="0">
+                        <Label [text]="discovery.name" class="name"></Label>
+                        <Label [text]="discovery.date" class="date"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </ng-template>
+        </RadListView>
+    </GridLayout>
+</StackLayout>

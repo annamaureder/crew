@@ -1,11 +1,13 @@
-<GridLayout rows="*, auto">
-    <StackLayout row="0">
+<GridLayout rows="auto, *, auto" backgroundColor="grey">
+    <StackLayout row="0" class="menu">
+        <Label text="Profile" (tap)="navigateTo('profile')"></Label>
+    </StackLayout>
+    <StackLayout row="1" backgroundColor="blue">
         <page-router-outlet></page-router-outlet>
     </StackLayout>
-    <StackLayout row="1">
-        <Label text="Feed" (tap)="navigateTo('feed')"></Label>
-        <Label text="Community" (tap)="navigateTo('community')"></Label>
-        <Label text="Chats" (tap)="navigateTo('chats')"></Label>
-        <Label text="Profile" (tap)="navigateTo('profile')"></Label>
+    <StackLayout row="2" class="menu">
+        <Label text="Feed" (tap)="navigateTo('feed')" class="menuitem"></Label>
+        <Label text="Community" (tap)="navigateTo('community')" class="menuitem"></Label>
+        <Label text="Chats" (tap)="navigateTo('chats')" class="menuitem"></Label>
     </StackLayout>
 </GridLayout>
