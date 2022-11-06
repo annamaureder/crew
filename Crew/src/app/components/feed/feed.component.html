@@ -2,7 +2,7 @@
     <SearchBar margin="10 0 10 0" (clear)="onClear($event)"
                (submit)="onSubmit($event)" (textChange)="onTextChange($event)"
                [textFieldBackgroundColor]="searchbarBackgroundColor" [textFieldHintColor]="searchbarColor"
-               (loaded)="disableFocus($event)" class="searchbar"></SearchBar>
+               (loaded)="disableFocus($event)" class="searchbar" hint="Name von Unternehmen"></SearchBar>
     <StackLayout>
         <FlexboxLayout orientation="horizontal" justifyContent="center">
             <Label *ngFor="let category of categories" [text]="category" class="category"
@@ -11,18 +11,29 @@
         </FlexboxLayout>
     </StackLayout>
     <GridLayout rows="*" margin="10">
-        <RadListView row="0" [items]="discoveries" row="0">
+        <RadListView row="0" [items]="discoveries" row="0" [filteringFunction]="filteringFunction">
             <ListViewLinearLayout scrollDirection="Vertical"></ListViewLinearLayout>
             <ng-template tkTemplateKey="auto" tkListItemTemplate let-discovery="item">
-                <GridLayout columns="auto, *" (tap)="showDetail(discovery)">
-                    <StackLayout #image col="0" backgroundColor="white" class="image" margin="0" padding="0">
+                <GridLayout columns="auto, *">
+                    <StackLayout #image col="0" backgroundColor="white" class="image" margin="0" padding="0"
+                                 (tap)="showDetail(discovery)">
                         <Image [src]="discovery.image" stretch="aspectFill"></Image>
                     </StackLayout>
                     <StackLayout #text col="1" marginLeft="10" verticalAlignment="center" padding="0">
-                        <Label [text]="discovery.provider" class="name" textWrap="true"></Label>
-                        <Label [text]="discovery.name" class="date" textWrap="true"></Label>
+                        <Label [text]="discovery.provider" class="name" textWrap="true"
+                               (tap)="showDetail(discovery)"></Label>
+                        <Label [text]="discovery.name" class="date" textWrap="true"
+                               (tap)="showDetail(discovery)"></Label>
                         <Label text="{{discovery.numberSeatLeft}}/{{discovery.numberSeatTotal}} available" class="date"
-                               textWrap="true"></Label>
+                               textWrap="true" (tap)="showDetail(discovery)"></Label>
+                        <StackLayout class="button" padding="2" margin="0" horizontalAlignment="left" width="75">
+                            <Label *ngIf="!isBooked(discovery)" verticalAlignment="center" horizontalAlignment="center"
+                                   text="&#xf004;  Book"
+                                   class="font-awesome" (tap)="book(discovery)"></Label>
+                            <Label *ngIf="isBooked(discovery)" verticalAlignment="center" horizontalAlignment="center"
+                                   text="Booked"
+                                   class="font-awesome"></Label>
+                        </StackLayout>
                     </StackLayout>
                 </GridLayout>
             </ng-template>

@@ -11,6 +11,10 @@
 
 .menuitem {
   color: white;
+  
+  &.active {
+    color: #49B4F0;
+  }
 }
 
 .font-awesome {

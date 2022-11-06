@@ -5,15 +5,20 @@
         </StackLayout>
         <GridLayout row="1" columns="*, auto" margin="20" rows="auto, *">
             <Label row="0" col="0" [text]="discovery.provider" class="company"></Label>
-            <StackLayout row="0" col="1" class="button" padding="10" margin="0" verticalAlignment="center">
-                <Label verticalAlignment="center" text="&#xf004;  Book" class="font-awesome"></Label>
+            <StackLayout row="0" col="1" class="button" padding="10" margin="0" verticalAlignment="center" width="100">
+                <Label *ngIf="!isBooked(discovery)" verticalAlignment="center" horizontalAlignment="center"
+                       text="&#xf004;  Book"
+                       (tap)="book(discovery)"
+                       class="font-awesome"></Label>
+                <Label *ngIf="isBooked(discovery)" verticalAlignment="center" horizontalAlignment="center" text="Booked"
+                       class="font-awesome"></Label>
             </StackLayout>
             <StackLayout row="1" class="text" marginTop="10">
                 <GridLayout columns="30, *">
                     <Label verticalAlignment="top" col="0" text="&#xf073;" class="font-awesome small"
                            marginTop="3"></Label>
                     <StackLayout col="1">
-                        <Label [text]="discovery.date" class="text"></Label>
+                        <Label text="{{ discovery.date | date}}" class="text"></Label>
                     </StackLayout>
                 </GridLayout>
                 <GridLayout columns="30, *" marginTop="10">

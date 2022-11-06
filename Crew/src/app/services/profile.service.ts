@@ -1,17 +1,32 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Discovery } from "../models/discovery.model";
 import { Profile } from "../models/profile.model";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
 
+  bookings: Discovery[] = [];
+
   getProfile(): Observable<Profile> {
     return null;
   }
 
-  mockData(): Profile {
-    let profile: Profile;
+  book(discovery: Discovery) {
+    this.bookings.push(discovery);
+  }
 
+  isBooked(discovery: Discovery): boolean {
+    let isBooked: boolean = false;
+    this.bookings.forEach(b => {
+      if (b.name === discovery.name) {
+        isBooked = true;
+      }
+    });
+    return isBooked;
+  }
+
+  mockData(): Profile {
     return {
       id: 52334,
       firstname: "Maria",

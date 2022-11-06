@@ -11,6 +11,7 @@ export class FeedService {
 
   mockData(): Array<Discovery> {
     let data: Array<Discovery> = [];
+    const now: Date = new Date();
 
     data = [{
       name: "2 drinks for free",
@@ -23,7 +24,7 @@ export class FeedService {
       start: "from 9pm",
       numberSeatTotal: 12,
       numberSeatLeft: 9,
-      date: new Date(),
+      date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 3),
       category: "Food"
     },
       {
@@ -37,7 +38,7 @@ export class FeedService {
         start: "from 8pm",
         numberSeatTotal: 4,
         numberSeatLeft: 2,
-        date: new Date(),
+        date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2),
         category: "Food"
       }, {
         name: "bottle of wine for free",
@@ -64,7 +65,7 @@ export class FeedService {
         start: "from 8am",
         numberSeatTotal: 3,
         numberSeatLeft: 1,
-        date: new Date(),
+        date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
         category: "Workshop"
       },
       {
@@ -78,7 +79,7 @@ export class FeedService {
         start: "from 11pm",
         numberSeatTotal: 2,
         numberSeatLeft: 8,
-        date: new Date(),
+        date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 9),
         category: "Activity"
       }];
 

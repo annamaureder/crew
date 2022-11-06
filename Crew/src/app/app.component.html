@@ -21,17 +21,20 @@
             <StackLayout (tap)="navigateTo('feed')">
                 <Label text="&#xf015;" class="font-awesome" [ngClass]="isSelected('feed') ? 'active' : ''"
                        horizontalAlignment="center"></Label>
-                <Label text="Discovery" class="menuitem" horizontalAlignment="center"></Label>
+                <Label text="Discovery" class="menuitem" horizontalAlignment="center"
+                       [ngClass]="isSelected('feed') ? 'active' : ''"></Label>
             </StackLayout>
             <StackLayout (tap)="navigateTo('community')">
                 <Label text="&#xf0c0;" class="font-awesome" [ngClass]="isSelected('community') ? 'active' : ''"
                        horizontalAlignment="center"></Label>
-                <Label text="Community" class="menuitem" horizontalAlignment="center"></Label>
+                <Label text="Community" class="menuitem" horizontalAlignment="center"
+                       [ngClass]="isSelected('community') ? 'active' : ''"></Label>
             </StackLayout>
             <StackLayout (tap)="navigateTo('chats')">
                 <Label text="&#xf075;" class="font-awesome" [ngClass]="isSelected('chats') ? 'active' : ''"
                        horizontalAlignment="center"></Label>
-                <Label text="Chat" class="menuitem" horizontalAlignment="center"></Label>
+                <Label text="Chat" class="menuitem" horizontalAlignment="center"
+                       [ngClass]="isSelected('chats') ? 'active' : ''"></Label>
             </StackLayout>
         </FlexboxLayout>
     </StackLayout>

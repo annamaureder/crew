@@ -12,10 +12,12 @@
     "@angular/platform-browser": "~14.2.0",
     "@angular/platform-browser-dynamic": "~14.2.0",
     "@angular/router": "~14.2.0",
+    "@bradmartin/nativescript-urlhandler": "^2.0.1",
     "@nativescript/android": "^8.3.1",
     "@nativescript/angular": "~14.2.0",
     "@nativescript/core": "~8.3.0",
     "@nativescript/theme": "~3.0.2",
+    "nativescript-feedback": "^2.0.0",
     "nativescript-ui-listview": "^14.2.4",
     "rxjs": "~7.5.0",
     "zone.js": "~0.11.5"
