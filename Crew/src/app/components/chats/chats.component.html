@@ -1,3 +1,25 @@
-<GridLayout backgroundColor="black">
-    <!-- Add your page content here -->
+<GridLayout backgroundColor="black" columns="*" rows="auto, *, auto">
+    <FlexboxLayout orientation="horizontal" justifyContent="center" row="0" col="0">
+        <Label text="Company" class="category"
+               [ngClass]="!isCategorySelected('company') ? 'unselected' : ''"
+               (tap)="selectCategory('company')"></Label>
+        <Label text="Private" class="category"
+               [ngClass]="!isCategorySelected('private') ? 'unselected' : ''"
+               (tap)="selectCategory('private')"></Label>
+    </FlexboxLayout>
+    <StackLayout row="1" col="0" marginTop="20">
+        <StackLayout marginBottom="15" *ngFor="let chat of chats">
+            <Label text="{{chat.name}}, {{ getTime(chat.date) }}" textWrap="true"
+                   class="sender" [ngClass]="isOwnChat(chat.id) ? 'own' : ''"></Label>
+            <Label [text]="chat.message" textWrap="true" class="chat-window"
+                   [ngClass]="isOwnChat(chat.id) ? 'own' : ''"></Label>
+        </StackLayout>
+    </StackLayout>
+    <GridLayout columns="*, 75" row="2" rows="*" verticalAlignment="center" marginBottom="20">
+        <TextView (textChange)="onTextChange($event)" row="0" col="0" verticalAlignment="center"></TextView>
+        <Label text="SEND" class="send-button" row="0" col="1"
+               verticalAlignment="center" horizontalAlignment="left" (tap)="sendMessage()"></Label>
+    </GridLayout>
 </GridLayout>
+
+

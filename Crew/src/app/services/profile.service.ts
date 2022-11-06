@@ -2,11 +2,14 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Discovery } from "../models/discovery.model";
 import { Profile } from "../models/profile.model";
+import { FeedService } from "./feed.service";
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
 
   bookings: Discovery[] = [];
+
+  constructor(private feedService: FeedService) {}
 
   getProfile(): Observable<Profile> {
     return null;
@@ -14,6 +17,7 @@ export class ProfileService {
 
   book(discovery: Discovery) {
     this.bookings.push(discovery);
+    this.feedService.reduceAmount(discovery);
   }
 
   isBooked(discovery: Discovery): boolean {

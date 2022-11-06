@@ -28,7 +28,6 @@ export class FeedComponent implements OnInit {
   searchbarColor: Color = new Color(0, 255, 255, 255);
 
   constructor(private feedService: FeedService, private profileService: ProfileService, private routerExtension: RouterExtensions) {
-    this.discoveries = new ObservableArray(this.feedService.mockData());
     this.categories = Array.from(new Set(this.feedService.mockData().map(d => d.category))).sort();
     this.categories.forEach(c => this.visibilities.set(c, true));
   }
@@ -81,7 +80,6 @@ export class FeedComponent implements OnInit {
   }
 
   onClear(event: any) {
-
     this._filterFunction = (item: Discovery) => {
       return true;
     };
@@ -98,6 +96,7 @@ export class FeedComponent implements OnInit {
   book(discovery: Discovery) {
     this.profileService.book(discovery);
     this.feedback.success({ message: "You have successfully booked a discovery!", duration: 2000, backgroundColor: new Color("#49B4F0") });
+    this.discoveries = new ObservableArray<Discovery>(this.feedService.mockData());
   }
 
   isBooked(discovery: Discovery) {

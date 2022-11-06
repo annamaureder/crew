@@ -5,15 +5,12 @@ import { Discovery } from "../models/discovery.model";
 @Injectable({ providedIn: "root" })
 export class FeedService {
 
-  getDiscoveries(): Observable<Array<Discovery>> {
-    return null;
-  }
+  data: Array<Discovery> = [];
 
-  mockData(): Array<Discovery> {
-    let data: Array<Discovery> = [];
+  constructor() {
     const now: Date = new Date();
 
-    data = [{
+    this.data = [{
       name: "2 drinks for free",
       provider: "Krypt",
       image: "~/assets/images/krypt.jpg",
@@ -64,25 +61,40 @@ export class FeedService {
         duration: "whole day",
         start: "from 8am",
         numberSeatTotal: 3,
-        numberSeatLeft: 1,
+        numberSeatLeft: 2,
         date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
         category: "Workshop"
       },
       {
         name: "after work billiard",
-        provider: "Le jardin",
+        provider: "Köö",
         image: "~/assets/images/billiard.jpg",
         description: "This is a description",
         street: "Spitzweg 32b",
         city: "Vienna",
         duration: "at night",
         start: "from 11pm",
-        numberSeatTotal: 2,
-        numberSeatLeft: 8,
+        numberSeatTotal: 8,
+        numberSeatLeft: 2,
         date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 9),
         category: "Activity"
       }];
+  }
 
-    return data;
+  getDiscoveries(): Observable<Array<Discovery>> {
+    return null;
+  }
+
+  mockData(): Array<Discovery> {
+    return this.data.sort((d1, d2) => (d1.date.getTime() - d2.date.getTime()));
+  }
+
+  reduceAmount(discovery: Discovery) {
+    const index = this.data.findIndex(d => d.name === discovery.name);
+    let current: Discovery = this.data.at(index);
+    current.numberSeatLeft = current.numberSeatLeft - 1;
+
+    this.data.splice(index, 1);
+    this.data.push(current);
   }
 }

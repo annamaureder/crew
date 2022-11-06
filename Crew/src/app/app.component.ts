@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationUtils } from "~/app/utils/navigationUtils";
 import { RouterExtensions } from "@nativescript/angular";
 import { AppURL, handleOpenURL } from '@bradmartin/nativescript-urlhandler';
+import { ChatsService } from "~/app/services/chats.service";
 
 @Component({
   selector: 'ns-app',
@@ -12,9 +13,7 @@ export class AppComponent implements OnInit {
 
   private selectedUrl = 'feed';
 
-  constructor(private routerExtension: RouterExtensions) {
-
-  }
+  constructor(private routerExtension: RouterExtensions, private chatService: ChatsService) {}
 
   ngOnInit(): void {
     handleOpenURL((appURL: AppURL) => {
@@ -25,12 +24,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onBottomNavigationTabSelected(event: any) {
-
-  }
-
-  onBottomNavigationTabPressed(event: any) {
-
+  getNumberOfUnreadMsgs() {
+    return this.chatService.getUnreadMessages();
   }
 
   isSelected(page: string) {

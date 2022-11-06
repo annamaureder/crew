@@ -10,7 +10,6 @@ export class CommunityService {
   }
 
   mockData(): Community {
-    let community: Community;
 
     return {
       name: "Tian Bistro",
