@@ -13,9 +13,11 @@ import { RouterExtensions } from "@nativescript/angular";
 export class FeedComponent implements OnInit {
 
   discoveries: ObservableArray<Discovery>;
+  categories: string[] = ["Food", "Drinks", "Activities", "Education"];
+  visibilities: Map<string, boolean> = new Map();
 
-  searchbarBackgroundColor: Color = new Color("#ffffff");
-  searchbarColor: Color = new Color("#EAEAEA");
+  searchbarBackgroundColor: Color = new Color("#D9D9D9");
+  searchbarColor: Color = new Color(0, 255, 255, 255);
 
   constructor(private feedService: FeedService, private routerExtension: RouterExtensions) {
     this.discoveries = new ObservableArray(this.feedService.mockData());
@@ -31,6 +33,28 @@ export class FeedComponent implements OnInit {
 
   onClear(event: any) {
 
+  }
+
+  selectCategory(category: string) {
+    console.log("Select category: " + category);
+    if (this.visibilities.has(category)) {
+      this.visibilities.set(category, !this.visibilities.get(category));
+    } else {
+      this.visibilities.set(category, false);
+    }
+
+    let data = this.feedService.mockData();
+    this.discoveries = new ObservableArray<Discovery>(data.filter(d => this.visibilities.get(d.category)));
+  }
+
+  isCategorySelected(category: string) {
+    return this.visibilities.has(category) ? this.visibilities.get(category) : true;
+  }
+
+  disableFocus(args) {
+    const searchbar: SearchBar = <SearchBar>args.object;
+    searchbar.textFieldBackgroundColor = this.searchbarBackgroundColor;
+    searchbar.textFieldHintColor = this.searchbarColor;
   }
 
   onSubmit(args: any) {

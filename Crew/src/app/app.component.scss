@@ -1,7 +1,23 @@
+.profile {
+  width: 50;
+  height: 50;
+  background-color: white;
+  border-radius: 25;
+}
+
 .menu {
   color: white;
 }
 
 .menuitem {
   color: white;
+}
+
+.font-awesome {
+  font-family: "FontAwesome";
+  font-size: 20;
+
+  .selected {
+    color: red;
+  }
 }

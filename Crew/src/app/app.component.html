@@ -1,13 +1,35 @@
-<GridLayout rows="auto, *, auto" backgroundColor="grey">
-    <StackLayout row="0" class="menu">
-        <Label text="Profile" (tap)="navigateTo('profile')"></Label>
+<GridLayout rows="auto, *, auto" backgroundColor="black">
+    <StackLayout row="0" margin="5" horizontalAlignment="left"
+                 verticalAlignment="center">
+        <Image src="~/assets/images/logo.png" height="60"></Image>
+    </StackLayout>
+    <StackLayout row="0" class="profile" (tap)="navigateTo('profile')" margin="5" horizontalAlignment="right"
+                 verticalAlignment="center">
+        <Label text="&#xf007;" class="font-awesome" style="font-size: 30" verticalAlignment="center"
+               horizontalAlignment="center"></Label>
+    </StackLayout>
+    <StackLayout row="0" class="profile" (tap)="navigateTo('profile')" margin="5" horizontalAlignment="right"
+                 verticalAlignment="center">
+        <Label text="&#xf007;" class="font-awesome" style="font-size: 30" verticalAlignment="center"
+               horizontalAlignment="center"></Label>
     </StackLayout>
     <StackLayout row="1" backgroundColor="blue">
         <page-router-outlet></page-router-outlet>
     </StackLayout>
     <StackLayout row="2" class="menu">
-        <Label text="Feed" (tap)="navigateTo('feed')" class="menuitem"></Label>
-        <Label text="Community" (tap)="navigateTo('community')" class="menuitem"></Label>
-        <Label text="Chats" (tap)="navigateTo('chats')" class="menuitem"></Label>
+        <FlexboxLayout orientation="horizontal" justifyContent="space-between" margin="0 20 0 20">
+            <StackLayout (tap)="navigateTo('feed')">
+                <Label text="&#xf015;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="Discovery" class="menuitem" horizontalAlignment="center"></Label>
+            </StackLayout>
+            <StackLayout (tap)="navigateTo('community')">
+                <Label text="&#xf0c0;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="Community" class="menuitem" horizontalAlignment="center"></Label>
+            </StackLayout>
+            <StackLayout (tap)="navigateTo('chats')">
+                <Label text="&#xf075;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="Chat" class="menuitem" horizontalAlignment="center"></Label>
+            </StackLayout>
+        </FlexboxLayout>
     </StackLayout>
 </GridLayout>

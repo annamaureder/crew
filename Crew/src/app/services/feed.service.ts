@@ -13,51 +13,36 @@ export class FeedService {
     let data: Array<Discovery> = [];
 
     data = [{
-      name: "Cocktailbar",
-      provider: "Company XY",
-      image: "~/assets/images/Cocktails.jpeg",
+      name: "2 drinks for free",
+      provider: "Krypt",
+      image: "~/assets/images/krypt.jpg",
       description: "This is a description",
       location: "Location XY",
-      numberSeat: 123,
+      numberSeatTotal: 5,
+      numberSeatLeft: 3,
       date: new Date(),
-      category: "Education"
+      category: "Food"
     },
       {
-        name: "Weiterbildung",
-        provider: "Company XY",
-        image: "~/assets/images/Cocktails.jpeg",
+        name: "one table for 4 people",
+        provider: "Seven North",
+        image: "~/assets/images/seven_north.jpg",
         description: "This is a description",
         location: "Location XY",
-        numberSeat: 123,
+        numberSeatTotal: 5,
+        numberSeatLeft: 3,
         date: new Date(),
         category: "Food"
       }, {
-        name: "Yoga mit Mady",
-        provider: "Company XY",
-        image: "~/assets/images/Cocktails.jpeg",
+        name: "bottle of wine for free",
+        provider: "Tian Bistro",
+        image: "~/assets/images/tian.jpg",
         description: "This is a description",
         location: "Location XY",
-        numberSeat: 123,
+        numberSeatTotal: 5,
+        numberSeatLeft: 3,
         date: new Date(),
         category: "Drinks"
-      }, {
-        name: "Stammtisch",
-        provider: "Company XY",
-        image: "~/assets/images/Cocktails.jpeg",
-        description: "This is a description",
-        location: "Location XY",
-        numberSeat: 123,
-        date: new Date(),
-        category: "Event"
-      }, {
-        name: "Lichterfest",
-        provider: "Company XY",
-        image: "~/assets/images/Cocktails.jpeg",
-        description: "This is a description",
-        location: "Location XY",
-        numberSeat: 123,
-        date: new Date(),
-        category: "Yoga"
       }];
 
     return data;

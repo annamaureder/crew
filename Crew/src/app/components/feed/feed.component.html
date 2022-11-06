@@ -1,8 +1,16 @@
 <StackLayout backgroundColor="black">
-    <SearchBar margin="10" (clear)="onClear($event)"
+    <SearchBar margin="10 0 10 0" (clear)="onClear($event)"
                (submit)="onSubmit($event)" (textChange)="onTextChange($event)"
-               [textFieldBackgroundColor]="searchbarBackgroundColor" [textFieldHintColor]="searchbarColor"></SearchBar>
-    <GridLayout rows="*">
+               [textFieldBackgroundColor]="searchbarBackgroundColor" [textFieldHintColor]="searchbarColor"
+               (loaded)="disableFocus($event)" class="searchbar"></SearchBar>
+    <StackLayout>
+        <FlexboxLayout orientation="horizontal" justifyContent="center">
+            <Label *ngFor="let category of categories" [text]="category" class="category"
+                   [ngClass]="isCategorySelected(category) ? 'unselected' : ''"
+                   (tap)="selectCategory(category)"></Label>
+        </FlexboxLayout>
+    </StackLayout>
+    <GridLayout rows="*" margin="10">
         <RadListView row="0" [items]="discoveries" row="0">
             <ListViewLinearLayout scrollDirection="Vertical"></ListViewLinearLayout>
             <ng-template tkTemplateKey="auto" tkListItemTemplate let-discovery="item">
@@ -10,9 +18,11 @@
                     <StackLayout #image col="0" backgroundColor="white" class="image" margin="0" padding="0">
                         <Image [src]="discovery.image" stretch="aspectFill"></Image>
                     </StackLayout>
-                    <StackLayout #text col="1" verticalAlignment="center" margin="0" padding="0">
-                        <Label [text]="discovery.name" class="name"></Label>
-                        <Label [text]="discovery.date" class="date"></Label>
+                    <StackLayout #text col="1" marginLeft="10" verticalAlignment="center" padding="0">
+                        <Label [text]="discovery.provider" class="name" textWrap="true"></Label>
+                        <Label [text]="discovery.name" class="date" textWrap="true"></Label>
+                        <Label text="{{discovery.numberSeatLeft}}/{{discovery.numberSeatTotal}} available" class="date"
+                               textWrap="true"></Label>
                     </StackLayout>
                 </GridLayout>
             </ng-template>

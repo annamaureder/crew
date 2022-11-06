@@ -5,6 +5,7 @@ export interface Discovery {
   image: string;
   category: string
   location: string;
-  numberSeat: number;
+  numberSeatTotal: number;
+  numberSeatLeft: number;
   date: Date;
 }

@@ -2,19 +2,18 @@
     <GridLayout rows="auto, *" margin="20">
         <StackLayout row="0" #profileData class="name">
             <StackLayout class="profilePicture">
-
+                <Image src="~/assets/images/icon_profile.svg"></Image>
             </StackLayout>
-            <StackLayout horizontalAlignment="center" margin="10">
-                <Label text="Mary Monroe" class="name"></Label>
-                <Label text="Servicekraft" class="name"></Label>
+            <StackLayout margin="10">
+                <Label text="{{profile.firstname}} {{profile.lastname}}" class="name"
+                       horizontalAlignment="center"></Label>
+                <Label text="{{profile.company}}" class="company" horizontalAlignment="center"></Label>
             </StackLayout>
         </StackLayout>
-
-
+        
         <StackLayout row="1" #qrCode marginTop="20" horizontalAlignment="center">
-            <Label horizontalAlignment="center" text="ID 1234235" class="name"></Label>
+            <Label horizontalAlignment="center" [text]="profile.id" class="id"></Label>
             <Image [src]="getQRCodeImage()" class="image"></Image>
         </StackLayout>
     </GridLayout>
-    <!-- Add your page content here -->
 </GridLayout>

@@ -1,17 +1,34 @@
+.searchbar {
+  background-color: transparent;
+}
+
 .image {
-  width: 100;
-  height: 100;
+  width: 146;
+  height: 123;
   border-radius: 10;
 }
 
-.name {
-  font-family: Arial;
+.category {
+  border-radius: 10;
+  padding: 5;
+  margin: 5;
   font-size: 16;
+  background-color: #49B4F0;
+  color: white;
+
+  .unselected {
+    opacity: 0.5;
+  }
+}
+
+.name {
+  font-family: Inter;
+  font-size: 20;
   color: white;
 }
 
 .date {
-  font-family: Arial;
-  font-size: 14;
+  font-family: Inter;
+  font-size: 16;
   color: white;
 }

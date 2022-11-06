@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { Community } from "../../models/community.model";
+import { CommunityService } from "../../services/community.service";
 
 @Component({
   selector: 'Community',
@@ -6,11 +8,14 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ["./community.component.scss"],
 })
 export class CommunityComponent implements OnInit {
-  constructor() {
-    // Use the component constructor to inject providers.
+
+  community: Community;
+
+  constructor(private communityService: CommunityService) {
+
   }
 
   ngOnInit(): void {
-    // Init your component properties here.
+    this.community = this.communityService.mockData();
   }
 }
