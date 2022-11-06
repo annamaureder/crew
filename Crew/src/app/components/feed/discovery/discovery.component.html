@@ -1,3 +1,29 @@
 <StackLayout backgroundColor="black">
-   
+    <GridLayout rows="200, auto">
+        <StackLayout row="0" #image backgroundColor="white">
+            <Image [src]="discovery.image" stretch="aspectFill"></Image>
+        </StackLayout>
+        <GridLayout row="1" columns="*, auto" margin="20" rows="auto, *">
+            <Label row="0" col="0" [text]="discovery.provider" class="company"></Label>
+            <StackLayout row="0" col="1" class="button" padding="10">
+                <Label text="&#xf004; Book" class="font-awesome"></Label>
+            </StackLayout>
+            <StackLayout row="1" class="text">
+                <GridLayout columns="30, *">
+                    <Label col="0" text="&#xf004;"></Label>
+                    <Label col="1" text="Test"></Label>
+                </GridLayout>
+                <GridLayout columns="30, *">
+                    <Label col="0" text="&#xf004;"></Label>
+                    <Label col="1" text="Test"></Label>
+                </GridLayout>
+                <GridLayout columns="30, *">
+                    <Label col="0" text="&#xf004;"></Label>
+                    <Label col="1" text="Test"></Label>
+                </GridLayout>
+            </StackLayout>
+
+        </GridLayout>
+
+    </GridLayout>
 </StackLayout>

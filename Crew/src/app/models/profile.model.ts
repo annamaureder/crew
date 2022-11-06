@@ -3,4 +3,6 @@ export interface Profile {
   lastname: string;
   position: string;
   company: string;
+  qrCodeImage: string;
+  id: number;
 }

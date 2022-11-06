@@ -1,5 +1,5 @@
 <StackLayout backgroundColor="black">
-    <SearchBar (clear)="onClear($event)"
+    <SearchBar margin="10" (clear)="onClear($event)"
                (submit)="onSubmit($event)" (textChange)="onTextChange($event)"
                [textFieldBackgroundColor]="searchbarBackgroundColor" [textFieldHintColor]="searchbarColor"></SearchBar>
     <GridLayout rows="*">
@@ -7,8 +7,8 @@
             <ListViewLinearLayout scrollDirection="Vertical"></ListViewLinearLayout>
             <ng-template tkTemplateKey="auto" tkListItemTemplate let-discovery="item">
                 <GridLayout columns="auto, *" (tap)="showDetail(discovery)">
-                    <StackLayout #image col="0" backgroundColor="white" class="image">
-
+                    <StackLayout #image col="0" backgroundColor="white" class="image" margin="0" padding="0">
+                        <Image [src]="discovery.image" stretch="aspectFill"></Image>
                     </StackLayout>
                     <StackLayout #text col="1" verticalAlignment="center" margin="0" padding="0">
                         <Label [text]="discovery.name" class="name"></Label>

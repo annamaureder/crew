@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { ObservableArray } from '@nativescript/core';
 import { Discovery } from '~/app/models/discovery.model';
 import { NavigationUtils } from '~/app/utils/navigationUtils';
-import { RouterExtensions } from "@nativescript/angular";
+import { PageRoute, RouterExtensions } from "@nativescript/angular";
+import { switchMap } from "rxjs";
 
 @Component({
   selector: 'Feed',
@@ -11,16 +12,15 @@ import { RouterExtensions } from "@nativescript/angular";
 })
 export class DiscoveryComponent implements OnInit {
 
-  discoveries: Discovery;
+  discovery: any;
 
-  constructor(private routerExtension: RouterExtensions) {
-
+  constructor(private pageRoute: PageRoute) {
   }
 
   ngOnInit(): void {
+    this.pageRoute.activatedRoute.pipe(switchMap((activatedRoute) => activatedRoute.queryParams)).forEach((param) => {
+      this.discovery = param;
+    });
   }
 
-  showDetail() {
-    NavigationUtils.navigate("discovery", this.routerExtension);
-  }
 }

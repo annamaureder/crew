@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Color, ObservableArray } from '@nativescript/core';
+import { Color, ObservableArray, SearchBar } from '@nativescript/core';
 import { Discovery } from '~/app/models/discovery.model';
 import { NavigationUtils } from '~/app/utils/navigationUtils';
 import { FeedService } from "../../services/feed.service";
@@ -33,11 +33,24 @@ export class FeedComponent implements OnInit {
 
   }
 
-  onSubmit(event: any) {
+  onSubmit(args: any) {
+    const searchBar = <SearchBar>args.object;
+    const searchValue = searchBar.text.toLowerCase();
 
+    let data = this.feedService.mockData();
+    this.discoveries = new ObservableArray<Discovery>(data.filter(d => d.name.includes(searchValue)));
   }
 
-  onTextChange(event: any) {
+  onTextChange(args: any) {
+    const searchBar = <SearchBar>args.object;
+    const searchValue = searchBar.text.toLowerCase();
 
+    console.log(searchValue);
+
+    let data = this.feedService.mockData();
+    console.log(data.length);
+
+    console.log(data.filter(d => d.name.includes(searchValue)).length);
+    this.discoveries = new ObservableArray<Discovery>(data.filter(d => d.name.includes(searchValue)));
   }
 }

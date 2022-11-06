@@ -13,9 +13,9 @@ export class FeedService {
     let data: Array<Discovery> = [];
 
     data = [{
-      name: "Test",
+      name: "Cocktailbar",
       provider: "Company XY",
-      image: "TEST",
+      image: "~/assets/images/Cocktails.jpeg",
       description: "This is a description",
       location: "Location XY",
       numberSeat: 123,
@@ -23,36 +23,36 @@ export class FeedService {
       category: "Education"
     },
       {
-        name: "Test",
+        name: "Weiterbildung",
         provider: "Company XY",
-        image: "TEST",
+        image: "~/assets/images/Cocktails.jpeg",
         description: "This is a description",
         location: "Location XY",
         numberSeat: 123,
         date: new Date(),
         category: "Food"
       }, {
-        name: "Test",
+        name: "Yoga mit Mady",
         provider: "Company XY",
-        image: "TEST",
+        image: "~/assets/images/Cocktails.jpeg",
         description: "This is a description",
         location: "Location XY",
         numberSeat: 123,
         date: new Date(),
         category: "Drinks"
       }, {
-        name: "Test",
+        name: "Stammtisch",
         provider: "Company XY",
-        image: "TEST",
+        image: "~/assets/images/Cocktails.jpeg",
         description: "This is a description",
         location: "Location XY",
         numberSeat: 123,
         date: new Date(),
         category: "Event"
       }, {
-        name: "Test",
+        name: "Lichterfest",
         provider: "Company XY",
-        image: "TEST",
+        image: "~/assets/images/Cocktails.jpeg",
         description: "This is a description",
         location: "Location XY",
         numberSeat: 123,

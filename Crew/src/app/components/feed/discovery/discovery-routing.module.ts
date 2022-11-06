@@ -10,4 +10,4 @@ const routes: Routes = [{ path: '', component: DiscoveryComponent }]
   imports: [NativeScriptRouterModule.forChild(routes)],
   exports: [NativeScriptRouterModule],
 })
-export class DiscoveryModule {}
+export class DiscoveryRoutingModule {}

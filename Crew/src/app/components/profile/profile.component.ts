@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
+import { Profile } from "../../models/profile.model";
+import { ProfileService } from "../../services/profile.service";
 
 @Component({
   selector: 'Home',
@@ -6,11 +8,19 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit {
-  constructor() {
+
+  profile: Profile;
+
+  constructor(private profileService: ProfileService) {
     // Use the component constructor to inject providers.
   }
 
   ngOnInit(): void {
-    // Init your component properties here.
+    this.profile = this.profileService.mockData();
+  }
+
+  getQRCodeImage(): string {
+    const imageDescription = "data:image/png;base64,"
+    return imageDescription + this.profile.qrCodeImage;
   }
 }
