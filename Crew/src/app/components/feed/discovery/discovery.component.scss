@@ -1,17 +1,24 @@
 .company {
   color: white;
+  font-size: 35;
 }
 
 .button {
   border-radius: 10;
-  background-color: blue;
+  background-color: #49B4F0;
   color: white;
+  font-size: 16;
 }
 
 .font-awesome {
   font-family: FontAwesome;
+
+  &.small {
+    font-size: 15;
+  }
 }
 
 .text {
+  font-size: 22;
   color: white;
 }

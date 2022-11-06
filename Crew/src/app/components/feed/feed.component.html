@@ -6,7 +6,7 @@
     <StackLayout>
         <FlexboxLayout orientation="horizontal" justifyContent="center">
             <Label *ngFor="let category of categories" [text]="category" class="category"
-                   [ngClass]="isCategorySelected(category) ? 'unselected' : ''"
+                   [ngClass]="!isCategorySelected(category) ? 'unselected' : ''"
                    (tap)="selectCategory(category)"></Label>
         </FlexboxLayout>
     </StackLayout>

@@ -13,7 +13,7 @@ import { RouterExtensions } from "@nativescript/angular";
 export class FeedComponent implements OnInit {
 
   discoveries: ObservableArray<Discovery>;
-  categories: string[] = ["Food", "Drinks", "Activities", "Education"];
+  categories: string[];
   visibilities: Map<string, boolean> = new Map();
 
   searchbarBackgroundColor: Color = new Color("#D9D9D9");
@@ -21,6 +21,8 @@ export class FeedComponent implements OnInit {
 
   constructor(private feedService: FeedService, private routerExtension: RouterExtensions) {
     this.discoveries = new ObservableArray(this.feedService.mockData());
+    this.categories = Array.from(new Set(this.feedService.mockData().map(d => d.category)));
+    this.categories.forEach(c => this.visibilities.set(c, true));
   }
 
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class FeedComponent implements OnInit {
   }
 
   selectCategory(category: string) {
-    console.log("Select category: " + category);
     if (this.visibilities.has(category)) {
       this.visibilities.set(category, !this.visibilities.get(category));
     } else {

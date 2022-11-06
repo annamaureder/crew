@@ -5,6 +5,15 @@
   background-color: white;
 }
 
+.font-awesome {
+  font-family: "FontAwesome";
+  font-size: 100;
+
+  &.active {
+    color: #49B4F0;
+  }
+}
+
 .name {
   color: white;
   font-size: 34;

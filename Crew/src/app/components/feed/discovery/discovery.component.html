@@ -5,21 +5,41 @@
         </StackLayout>
         <GridLayout row="1" columns="*, auto" margin="20" rows="auto, *">
             <Label row="0" col="0" [text]="discovery.provider" class="company"></Label>
-            <StackLayout row="0" col="1" class="button" padding="10">
-                <Label text="&#xf004; Book" class="font-awesome"></Label>
+            <StackLayout row="0" col="1" class="button" padding="10" margin="0" verticalAlignment="center">
+                <Label verticalAlignment="center" text="&#xf004;  Book" class="font-awesome"></Label>
             </StackLayout>
-            <StackLayout row="1" class="text">
+            <StackLayout row="1" class="text" marginTop="10">
                 <GridLayout columns="30, *">
-                    <Label col="0" text="&#xf004;"></Label>
-                    <Label col="1" text="Test"></Label>
+                    <Label verticalAlignment="top" col="0" text="&#xf073;" class="font-awesome small"
+                           marginTop="3"></Label>
+                    <StackLayout col="1">
+                        <Label [text]="discovery.date" class="text"></Label>
+                    </StackLayout>
                 </GridLayout>
-                <GridLayout columns="30, *">
-                    <Label col="0" text="&#xf004;"></Label>
-                    <Label col="1" text="Test"></Label>
+                <GridLayout columns="30, *" marginTop="10">
+                    <Label verticalAlignment="top" col="0" text="&#xf017;" class="font-awesome small"
+                           marginTop="3"></Label>
+                    <StackLayout col="1">
+                        <Label [text]="discovery.duration" class="text" style="font-weight:bold;"></Label>
+                        <Label [text]="discovery.start" class="text" marginTop="-5"></Label>
+                    </StackLayout>
                 </GridLayout>
-                <GridLayout columns="30, *">
-                    <Label col="0" text="&#xf004;"></Label>
-                    <Label col="1" text="Test"></Label>
+                <GridLayout columns="30, *" marginTop="10">
+                    <Label verticalAlignment="top" col="0" text="&#xf3c5;" class="font-awesome small"
+                           marginTop="3"></Label>
+                    <StackLayout col="1">
+                        <Label text="address" class="text" style="font-weight:bold;"></Label>
+                        <Label [text]="discovery.street" class="text" marginTop="-5"></Label>
+                        <Label [text]="discovery.city" class="text" marginTop="-5"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout columns="30, *" marginTop="10">
+                    <Label verticalAlignment="top" col="0" text="&#xf559;" class="font-awesome small"
+                           marginTop="3"></Label>
+                    <StackLayout col="1">
+                        <Label text="special" class="text" style="font-weight:bold;"></Label>
+                        <Label [text]="discovery.name" class="text" marginTop="-5"></Label>
+                    </StackLayout>
                 </GridLayout>
             </StackLayout>
 

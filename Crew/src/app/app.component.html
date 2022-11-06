@@ -19,15 +19,18 @@
     <StackLayout row="2" class="menu">
         <FlexboxLayout orientation="horizontal" justifyContent="space-between" margin="0 20 0 20">
             <StackLayout (tap)="navigateTo('feed')">
-                <Label text="&#xf015;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="&#xf015;" class="font-awesome" [ngClass]="isSelected('feed') ? 'active' : ''"
+                       horizontalAlignment="center"></Label>
                 <Label text="Discovery" class="menuitem" horizontalAlignment="center"></Label>
             </StackLayout>
             <StackLayout (tap)="navigateTo('community')">
-                <Label text="&#xf0c0;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="&#xf0c0;" class="font-awesome" [ngClass]="isSelected('community') ? 'active' : ''"
+                       horizontalAlignment="center"></Label>
                 <Label text="Community" class="menuitem" horizontalAlignment="center"></Label>
             </StackLayout>
             <StackLayout (tap)="navigateTo('chats')">
-                <Label text="&#xf075;" class="font-awesome" horizontalAlignment="center"></Label>
+                <Label text="&#xf075;" class="font-awesome" [ngClass]="isSelected('chats') ? 'active' : ''"
+                       horizontalAlignment="center"></Label>
                 <Label text="Chat" class="menuitem" horizontalAlignment="center"></Label>
             </StackLayout>
         </FlexboxLayout>

@@ -9,6 +9,8 @@ import { RouterExtensions } from "@nativescript/angular";
 })
 export class AppComponent {
 
+  private selectedUrl = 'feed';
+
   constructor(private routerExtension: RouterExtensions) {
 
   }
@@ -21,7 +23,12 @@ export class AppComponent {
 
   }
 
+  isSelected(page: string) {
+    return this.selectedUrl == page;
+  }
+
   navigateTo(page: string) {
+    this.selectedUrl = page;
     NavigationUtils.navigate(page, this.routerExtension);
   }
 

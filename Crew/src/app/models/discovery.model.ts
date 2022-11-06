@@ -3,8 +3,11 @@ export interface Discovery {
   description: string;
   provider: string;
   image: string;
+  street: string;
+  city: string;
+  duration: string;
+  start: string;
   category: string
-  location: string;
   numberSeatTotal: number;
   numberSeatLeft: number;
   date: Date;

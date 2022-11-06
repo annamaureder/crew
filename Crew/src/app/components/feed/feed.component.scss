@@ -16,7 +16,7 @@
   background-color: #49B4F0;
   color: white;
 
-  .unselected {
+  &.unselected {
     opacity: 0.5;
   }
 }

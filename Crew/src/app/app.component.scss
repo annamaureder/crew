@@ -17,7 +17,7 @@
   font-family: "FontAwesome";
   font-size: 20;
 
-  .selected {
-    color: red;
+  &.active {
+    color: #49B4F0;
   }
 }
