@@ -20,14 +20,16 @@ export class FeedComponent implements OnInit {
 
   private feedback = new Feedback();
 
-  filteringFunction: (item: any) => any;
+  private _filterFunction = (item: Discovery) => {
+    return true;
+  };
 
   searchbarBackgroundColor: Color = new Color("#D9D9D9");
   searchbarColor: Color = new Color(0, 255, 255, 255);
 
   constructor(private feedService: FeedService, private profileService: ProfileService, private routerExtension: RouterExtensions) {
     this.discoveries = new ObservableArray(this.feedService.mockData());
-    this.categories = Array.from(new Set(this.feedService.mockData().map(d => d.category)));
+    this.categories = Array.from(new Set(this.feedService.mockData().map(d => d.category))).sort();
     this.categories.forEach(c => this.visibilities.set(c, true));
   }
 
@@ -37,13 +39,6 @@ export class FeedComponent implements OnInit {
 
   showDetail(discovery: Discovery) {
     NavigationUtils.navigate("discovery", this.routerExtension, false, discovery);
-  }
-
-  onClear(event: any) {
-
-    this.filteringFunction = (item: Discovery) => {
-      true
-    };
   }
 
   selectCategory(category: string) {
@@ -71,8 +66,8 @@ export class FeedComponent implements OnInit {
     const searchBar = <SearchBar>args.object;
     const searchValue = searchBar.text.toLowerCase();
 
-    this.filteringFunction = (item: Discovery) => {
-      item.name.includes(searchValue);
+    this._filterFunction = (item: Discovery) => {
+      return item.provider.toLowerCase().includes(searchValue);
     };
   }
 
@@ -80,9 +75,24 @@ export class FeedComponent implements OnInit {
     const searchBar = <SearchBar>args.object;
     const searchValue = searchBar.text.toLowerCase();
 
-    this.filteringFunction = (item: Discovery) => {
-      item.name.includes(searchValue);
+    this._filterFunction = (item: Discovery) => {
+      return item.provider.toLowerCase().includes(searchValue);
     };
+  }
+
+  onClear(event: any) {
+
+    this._filterFunction = (item: Discovery) => {
+      return true;
+    };
+  }
+
+  get filterFunc(): (item: any) => any {
+    return this._filterFunction;
+  }
+
+  set filterFunc(value: (item: any) => any) {
+    this._filterFunction = value;
   }
 
   book(discovery: Discovery) {

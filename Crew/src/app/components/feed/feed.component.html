@@ -11,7 +11,7 @@
         </FlexboxLayout>
     </StackLayout>
     <GridLayout rows="*" margin="10">
-        <RadListView row="0" [items]="discoveries" row="0" [filteringFunction]="filteringFunction">
+        <RadListView row="0" [items]="discoveries" row="0" [filteringFunction]="filterFunc">
             <ListViewLinearLayout scrollDirection="Vertical"></ListViewLinearLayout>
             <ng-template tkTemplateKey="auto" tkListItemTemplate let-discovery="item">
                 <GridLayout columns="auto, *">
@@ -32,7 +32,7 @@
                                    class="font-awesome" (tap)="book(discovery)"></Label>
                             <Label *ngIf="isBooked(discovery)" verticalAlignment="center" horizontalAlignment="center"
                                    text="Booked"
-                                   class="font-awesome"></Label>
+                                   color="white"></Label>
                         </StackLayout>
                     </StackLayout>
                 </GridLayout>
