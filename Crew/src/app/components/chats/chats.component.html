@@ -16,7 +16,8 @@
         </StackLayout>
     </StackLayout>
     <GridLayout columns="*, 75" row="2" rows="*" verticalAlignment="center" marginBottom="20">
-        <TextView (textChange)="onTextChange($event)" row="0" col="0" verticalAlignment="center"></TextView>
+        <TextView (textChange)="onTextChange($event)" [text]="message" row="0" col="0"
+                  verticalAlignment="center"></TextView>
         <Label text="SEND" class="send-button" row="0" col="1"
                verticalAlignment="center" horizontalAlignment="left" (tap)="sendMessage()"></Label>
     </GridLayout>
